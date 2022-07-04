@@ -6,12 +6,12 @@ import AppKit
 
 async def main(connection):
     try:
-        fname = sys.argv[1]
+        fname = sys.argv[1:]
     except IndexError:
         fname = ''
     await iterm2.Window.async_create(
         connection,
-        command='zsh -c "nvim {}"'.format(fname),
+        command='zsh -c "nvim {}"'.format(' '.join(fname)),
         profile='Text Editing'
     )
 
