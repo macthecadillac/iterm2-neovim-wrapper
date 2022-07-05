@@ -32,6 +32,10 @@ async def main(connection):
     )
 
 
+# unset the $PYTHONPATH variable in the shell. Without this, an iTerm session
+# started with this bundle will have trouble loading python packages.
+os.environ['PYTHONPATH'] = ''
+
 # Launch iTerm if it is not already running
 workspace = AppKit.NSWorkspace.sharedWorkspace()
 if ' '.join(str(s) for s in workspace.runningApplications()).find('com.googlecode.iterm2') < 0:

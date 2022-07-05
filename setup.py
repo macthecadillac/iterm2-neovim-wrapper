@@ -14,6 +14,8 @@ setup(
         'py2app': {
             'iconfile': 'AppIcon.icns',
             'argv_emulation': True,
+            'semi_standalone': True,
+            'strip': True,
             'plist': {
                 'CFBundleDocumentTypes': [
                     {
