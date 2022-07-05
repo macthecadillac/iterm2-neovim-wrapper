@@ -9,6 +9,7 @@ from setuptools import setup
 setup(
     app=['launch_neovim_in_iterm2.py'],
     name='Neovim',
+    version='1.0',
     options={
         'py2app': {
             'iconfile': 'AppIcon.icns',
