@@ -1,8 +1,20 @@
 import os
 import sys
 
+import appdirs
 import iterm2
 import AppKit
+
+
+def get_profile():
+    config_dir = appdirs.user_config_dir('Neovim', 'Mac Lee')
+    fpath = os.path.join(config_dir, 'profile')
+    try:
+        with open(fpath) as fh:
+            profile = fh.read()
+        return profile[:-1]
+    except FileNotFoundError:
+        return
 
 
 async def main(connection):
@@ -12,10 +24,11 @@ async def main(connection):
         fnames = ''
     shell = os.environ['SHELL']
     command = '{} -c "nvim {}"'.format(shell, fnames)
+    profile = get_profile()
     await iterm2.Window.async_create(
         connection,
         command=command,
-        # profile='Default'
+        profile=profile
     )
 
 

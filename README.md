@@ -4,11 +4,12 @@ A Python `py2app` setup configuration.
 
 ## Prerequisites
 
-The following Python libraries must be installed for the build to go foward:
+The following Python libraries must be installed for the build to go forward:
 
   - `py2app`
   - `pyobjc`
   - `iterm2`
+  - `appdir`
 
 Obviously, you'll also need iTerm2 and Neovim to be present on your system for this to work.
 
@@ -16,7 +17,9 @@ Obviously, you'll also need iTerm2 and Neovim to be present on your system for t
 
 Check out the repository, then in the directory, run `python3 setup.py py2app`. This will create `Neovim.app` under `dist`. Simply drag and drop the bundle to your application folder.
 
-A note on profiles: if you use a custom profile for Neovim then you should uncomment the corresponding line in `launch_neovim_in_iterm2.py` and replace "Default" with the name of your profile before building the app bundle.
+## Configuration
+
+The bundle will use whatever profile you put in `~/Library/Application Support/Neovim/profile`. It will fail to open if the name of the profile is invalid/unknown to iTerm2. The default profile will be used if this file does not exist.
 
 ## Credits
 
