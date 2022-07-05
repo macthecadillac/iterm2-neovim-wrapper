@@ -13,7 +13,11 @@ The following Python libraries must be installed for the build to go forward:
 
 Obviously, you'll also need iTerm2 and Neovim to be present on your system for this to work.
 
-## Build and install
+## Installation
+
+Download the appropriate prebuilt archive from the releases page. Decompress and move to your application folder.
+
+## Building from source
 
 Check out the repository, then in the directory, run `python3 setup.py py2app`. This will create `Neovim.app` under `dist`. Simply drag and drop the bundle to your application folder.
 
