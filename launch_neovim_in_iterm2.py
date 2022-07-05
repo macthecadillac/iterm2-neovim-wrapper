@@ -1,5 +1,4 @@
 import os
-import shutil
 import sys
 
 import iterm2
@@ -12,12 +11,11 @@ async def main(connection):
     except IndexError:
         fnames = ''
     shell = os.environ['SHELL']
-    nvim = shutil.which('nvim')
-    command = '{} -c "{} {}"'.format(shell, nvim, fnames)
+    command = '{} -c "nvim {}"'.format(shell, fnames)
     await iterm2.Window.async_create(
         connection,
         command=command,
-        profile='Text Editing'
+        # profile='Default'
     )
 
 
